@@ -1,0 +1,28 @@
+VAGRANTFILE_API_VERSION = "2"
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+    config.vm.define :chef_server do |cfg|
+        cfg.vm.box = "hashicorp/precise64"
+        cfg.vm.network :private_network, ip: "192.168.30.10"
+        cfg.vm.host_name = "chef-server"
+    end
+    config.vm.define :workstation do |cfg|
+        cfg.vm.box = "hashicorp/precise64"
+        cfg.vm.network :private_network, ip: "192.168.30.20"
+        cfg.vm.host_name = "workstation"
+    end
+    config.vm.define :node01 do |cfg|
+        cfg.vm.box = "hashicorp/precise64"
+        cfg.vm.network :private_network, ip: "192.168.30.21"
+        cfg.vm.host_name = "node01"
+    end
+    config.vm.define :node02 do |cfg|
+        cfg.vm.box = "hashicorp/precise64"
+        cfg.vm.network :private_network, ip: "192.168.30.22"
+        cfg.vm.host_name = "node02"
+    end
+    config.vm.define :node03 do |cfg|
+        cfg.vm.box = "hashicorp/precise64"
+        cfg.vm.network :private_network, ip: "192.168.30.23"
+        cfg.vm.host_name = "node03"
+    end
+end
